@@ -1,0 +1,51 @@
+### Health
+GET http://localhost:8080/health
+
+### List jobs
+GET http://localhost:8080/api/v1/jobs
+
+### Filter ready loafers
+GET http://localhost:8080/api/v1/jobs?status=READY&footwear=loafer
+
+### Create intake job
+POST http://localhost:8080/api/v1/jobs
+Content-Type: application/json
+
+{
+  "code": "LW-210",
+  "customer": "Sam Ortega",
+  "footwear": "pump",
+  "leather": "patent",
+  "issue": "Broken heel stem",
+  "cobbler": "Jordan Lee",
+  "dueOn": "2026-09-01",
+  "status": "INTAKE",
+  "notes": "Keep spare lifts.",
+  "tags": ["dress", "rush"]
+}
+
+### Last
+POST http://localhost:8080/api/v1/jobs/{{jobId}}/last
+
+### Stitch
+POST http://localhost:8080/api/v1/jobs/{{jobId}}/stitch
+
+### Finish
+POST http://localhost:8080/api/v1/jobs/{{jobId}}/finish
+
+### Ready
+POST http://localhost:8080/api/v1/jobs/{{jobId}}/ready
+
+### Pickup
+POST http://localhost:8080/api/v1/jobs/{{jobId}}/pickup
+
+### Update notes
+PUT http://localhost:8080/api/v1/jobs/{{jobId}}
+Content-Type: application/json
+
+{
+  "notes": "Picked up with receipt."
+}
+
+### Delete
+DELETE http://localhost:8080/api/v1/jobs/{{jobId}}
